@@ -1,0 +1,28 @@
+pwd
+
+ls
+
+cd 
+
+cd ..
+
+ls -aS
+
+la -at
+
+la -alSt
+
+chmod 744 file.txt
+
+
+useradd yagyesh
+
+sudo passwd yagyesh
+
+
+su - yagyesh 
+
+
+chown -aG wheel yagyesh 
+
+
