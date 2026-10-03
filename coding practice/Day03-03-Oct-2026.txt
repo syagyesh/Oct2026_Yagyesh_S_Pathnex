@@ -1,0 +1,58 @@
+ps -> process listing
+
+top -> getting cpu usage and memory usage
+
+free -> memory usage
+
+netstat -> network statistics
+
+ifconfig -> network configuration
+
+uname -a -> system information
+
+whoami -> current user
+
+du -> disk usage
+
+du -h -> human readable disk usage
+
+free -h -> human readable memory usage
+
+curl -> transfer data from or to a server
+
+wget -> download files from the internet
+
+ping -> check connectivity to a host
+
+ssh -> secure shell for remote login
+
+scp -> secure copy files between hosts
+
+umask -> set default file permissions
+
+ln -> create hard and symbolic links 
+
+ln -s -> create symbolic link | usage: ln -s target link_name
+
+tar -> archive files
+
+tar -cvf archive.tar file1 file2 -> create a tar archive 
+
+tar -xvf archive.tar -> extract a tar archive
+
+kill -> terminate a process by PID
+
+pkill -> terminate a process by name
+
+grep -> search for patterns in files
+
+pgrep -> search for processes by name
+
+uptime -> show how long the system has been running
+
+date -> display the current date and time
+
+ls -l -> list files in long format
+
+lscpu -> list CPU information
+
