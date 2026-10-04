@@ -1,0 +1,8 @@
+10 minutes IP Address
+5 minutes Domain
+10 minutes OSI Layer
+
+2 minutes youtube comment
+
+20 minutes AWS EC2 Setup
+10 minutes connfiguring annd pushinng code.  
