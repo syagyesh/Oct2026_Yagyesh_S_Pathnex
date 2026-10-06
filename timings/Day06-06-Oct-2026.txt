@@ -1,0 +1,9 @@
+10 minute aws role practice. 
+
+10 minute IAM roles.
+
+20 minute aws ec2 training.
+
+2 minutes youtube comment
+
+10 minutes connfiguring annd pushinng code.  
