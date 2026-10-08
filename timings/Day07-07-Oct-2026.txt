@@ -1,0 +1,11 @@
+10 minute aws vpc practice.
+
+10 minute s3
+
+10 minute lambda and cloud trail
+
+10 minnute cloudwatch
+
+2 minutes youtube comment
+
+10 minutes configuring and pushing code.  
