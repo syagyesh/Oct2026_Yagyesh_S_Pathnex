@@ -1,0 +1,7 @@
+30 minutes different AWS security services.
+
+10 minute amazon cloudfront
+
+2 minutes youtube comment
+
+10 minutes configuring and pushing code.  
