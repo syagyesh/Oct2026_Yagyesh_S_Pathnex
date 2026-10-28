@@ -1,0 +1,36 @@
+- name: Setup VPC Peering Between Accounts
+  hosts: localhost
+  tasks:
+    - name: Create VPC peering connection
+      command: aws ec2 create-vpc-peering-connection --vpc-id vpc-12345678 --peer-vpc-id vpc-87654321
+resource "aws_vpc_peering_connection" "yagyesh_peering" {
+  vpc_id      = aws_vpc.yagyesh_vpc.id
+  peer_vpc_id = aws_vpc.peer_vpc.id
+}
+
+resource "aws_route" "yagyesh_route" {
+  route_table_id         = aws_route_table.yagyesh_rt.id
+  destination_cidr_block = "10.0.0.0/16"
+  vpc_peering_connection_id = aws_vpc_peering_connection.yagyesh_peering.id
+}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: yagyesh-vpc-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: yagyesh-app
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: yagyesh-db
+
+
+
+docker save -o yagyesh-nginx.tar yagyesh-nginx
+
+docker load -i yagyesh-nginx.tar
+
+docker run --rm -v yagyesh-volume:/data -v $(pwd):/backup ubuntu tar czf /backup yagyesh-backup.tar.gz /data
