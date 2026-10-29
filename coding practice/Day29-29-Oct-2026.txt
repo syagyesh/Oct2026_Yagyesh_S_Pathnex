@@ -1,0 +1,77 @@
+- name: Complete Deployment Setup
+  hosts: all
+  become: yes
+  tasks:
+    - name: Deploy Nginx, MySQL, and Redis with Docker
+      command: docker-compose -f /path/to/docker-compose.yml up -d
+      
+resource "aws_vpc" "yagyesh_vpc" {
+  cidr_block = "10.0.0.0/16"
+}
+
+resource "aws_instance" "yagyesh_app" {
+  ami           = "ami-0abcd1234abcd1234"
+  instance_type = "t2.medium"
+  subnet_id     = aws_subnet.yagyesh_subnet.id
+  security_groups = [aws_security_group.yagyesh_sg.name]
+}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yagyesh-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: yagyesh-app
+  template:
+    metadata:
+      labels:
+        app: yagyesh-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yagyesh-service
+spec:
+  selector:
+    app: yagyesh-app
+  ports:
+    - port: 80
+      targetPort: 80
+
+
+FROM nginx
+RUN useradd yagyeshuser
+USER yagyeshuser
+
+docker container prune
+docker image prune
+docker volume prune
+docker network prune
+docker system prune -a
+
+
+version: '3'
+services:
+  frontend:
+    image: nginx
+    container_name: yagyesh-frontend
+    ports:
+      - "80:80"
+  backend:
+    build: ./backend
+    container_name: yagyesh-backend
+    ports:
+      - "5000:5000"
+  database:
+    image: mysql:8
+    container_name: yagyesh-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
