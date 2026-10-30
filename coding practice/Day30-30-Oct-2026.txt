@@ -1,0 +1,6 @@
+On this final day, your task is to deploy the entire Pathnex application on AWS or Kubernetes, leveraging everything I’ve learned during the challenge. 
+
+1. **Deploy with Terraform**: Provision your infrastructure (VPC, EC2 instances, RDS, etc.).
+2. **Set Up Kubernetes**: Deploy the application stack using Kubernetes and Helm.
+3. **CI/CD Integration**: Use Jenkins and GitLab to automate deployment and monitoring.
+4. **Security and Scaling**: Ensure secure access and scalability with proper network policies and monitoring.
